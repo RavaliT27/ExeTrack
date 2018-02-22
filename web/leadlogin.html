@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Website CSS style -->
+    <link rel="stylesheet" type="text/css" href="css/leadlogin.css">
+
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/ngStorage.js" type="text/javascript"></script>
+    <script src="js/loadlash.js" type="text/javascript"></script>
+    <script src="js/angular-route.js" type="text/javascript"></script>
+
+    <title>Tracking</title>
+    <style>
+       input[type='submit']
+{
+    padding:8px 25px;
+    border-radius: 8px;
+    background-color: #337ab7;
+    border:none;
+    margin-top: 20px;
+    color:white;
+  
+}
+    </style>
+  </head>
+  <body ng-app="mylead" ng-controller="myleadctrl">
+
+    <div class="container hide_class" id="register_form" style="display:none;">
+      <div class="row main">
+
+        <div class="main-login main-center">
+<img src="http://www.neemiit.com/wp-content/uploads/2017/04/cropped-neemcropped.png" alt="NEEMiiT" class="NEEMMiiT" style="position: relative;left:50%;transform: translateX(-50%);margin: 0 0 30px 0;" /><br/>
+
+          <span class="title">Register Here</span>
+          <hr>
+
+
+          <form class="form-horizontal" ng-submit="otp(reg.contactphone);" name="userForm">
+            <div class="row">
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Organisation Name</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.orgname" class="form-control" name="name" id="name"  required placeholder="Enter organisation name"/>
+                    
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Organisation Phone no</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <input type="number" ng-model="reg.orgphone" class="form-control" name="name" id="name"   required placeholder="organisation phone no."/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Contact Name</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.contactname" class="form-control" name="name" id="name" required  placeholder="Enter the contact name"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="username" class="cols-sm-2 control-label">Email address</label>
+
+                  <div class="input-group"  ng-class="{ 'has-error' : userForm.emailid.$invalid && !userForm.emailid.$pristine }" >
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="email" ng-model="reg.contactemail" class="form-control" name="emailid" id="username" required  placeholder="email address"/>
+               
+                  </div>
+
+                </div>
+                  <p ng-show="userForm.emailid.$invalid && !userForm.emailid.$pristine" class="help-block" style="color:red;">Enter a valid email.</p>
+              </div>
+
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label  class="cols-sm-2 control-label">Contact phone no</label>
+
+                  <div class="input-group" ng-class="{'has-error' : userForm.phoneno.$invalid && !userForm.phoneno.$pristine }">
+                    <span class="input-group-addon"><i  class="fa fa-phone" aria-hidden="true"></i></span>
+                    <input type="number"  ng-minlength="10" ng-maxlength="10" ng-model="reg.contactphone" string-to-number class="form-control" name="phoneno"  required placeholder="Enter contact no."/>
+                 
+                  </div>
+ 
+                </div>
+                <p ng-show="userForm.phoneno.$error.minlength" class="help-block" style="color:red;">phone number is too short.</p>
+                <p ng-show="userForm.phoneno.$error.maxlength" class="help-block" style="color:red;">phone number is too long.</p>
+              </div>
+              
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Street name</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-road" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.address.streetname" class="form-control" name="name"  required  placeholder="Enter street name"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="email" class="cols-sm-2 control-label">City</label>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.address.city" class="form-control" name="email" required  placeholder="Enter city"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">State</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-industry" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.address.state" class="form-control" name="name"  required   placeholder="Enter state"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Pincode</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                    <input type="number"  ng-model="reg.address.pincode" class="form-control" name="name"  required placeholder="Enter pincode"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">Location</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="reg.location" class="form-control" name="name" required placeholder="Enter location"/>
+                  </div>
+
+                </div>
+              </div>
+ <div class="col-sm-12 reg_field" style="display:block;text-align:center;color:red;font-weight:bold;font-size:20px;">
+           {{regerror}}</div>
+
+
+            </div>
+
+            <div style="text-align: center;">
+    <input type="submit" value="Register"  ng-disabled="userForm.$invalid">
+            </div>
+<!--            <div class="btn">
+              <button type="button" ng-disabled="userForm.$invalid">Register</button>
+            </div>-->
+            <div class="login-register">
+              <span>Already Registered?</span>
+              <i class="fa fa-hand-o-right hand_color" aria-hidden="true"></i>
+
+              <a  onclick="toogle()">Click Here</a>
+              <span>to login</span>
+            </div>
+          </form>
+<!--          <div style="display:block;text-align:center;width:50px;height: 20px;color:red;font-weight:bold;font-size:20px;">
+            sadadadada</div>-->
+        </div>
+      </div>
+    </div>
+    <div class="container" id="login_form" >
+      <div class="row main">
+        <div class="main-login main-center">
+
+<img src="http://www.neemiit.com/wp-content/uploads/2017/04/cropped-neemcropped.png" alt="NEEMiiT" class="NEEMMiiT" style="position: relative;left:50%;transform: translateX(-50%);margin: 0 0 30px 0;" /><br/>
+
+          <span class="title">Login Here</span>
+          <hr>
+
+
+          <form class="form-horizontal"  ng-submit="userlogin();">
+            <div class="row">
+              <div class="col-sm-12 reg_field">
+                <div class="form-group">
+                  <label for="name" class="cols-sm-2 control-label">User Name</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" ng-model="couple.username" name="name" id="name"  placeholder="Enter the username"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-12 reg_field">
+                <div class="form-group">
+                  <label  class="cols-sm-2 control-label">Password</label>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control" ng-model="couple.password" name="username" id="iameye"  placeholder="Enter the password"/>
+                 <img id="myImg" onclick="show();" alt="" src="images/openeye.png" style="position: absolute;width:20px;height:20px;background: none;
+                      top:50%;transform:translateY(-50%);right:5px;z-index:100; "/>
+                
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-12 reg_field" style="color:red;text-align: center;">
+              {{already}}
+              </div>
+<!--                <div class="col-sm-12 reg_field" id="itsmeeye" style="margin-top: 15px;">
+        <img id="myImg" onclick="show();" alt="" src="images/openeye.png" style="width:20px;height:20px;background: none;float:right;"/>
+                </div>-->
+              <div class="col-sm-12 reg_field" style="text-align: center;">
+ <!--<div class="btn">-->
+              <input type="submit" value="Login" >
+            <!--</div>-->
+              </div>
+            </div>
+
+
+           
+            <div class="login-register">
+              <span>Not yet member?</span>
+              <i class="fa fa-hand-o-right hand_color" aria-hidden="true"></i>
+
+              <a  onclick="toogle()" class="gotologin">Click Here</a>
+              <span>to register</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+
+<div class="testing {{test}}">
+   <div class="cd-popupwhite" role="alert" style="padding:20px;border:1px solid #009694;border-radius:0px;"> 
+    
+
+        <p style="color:#009694;margin-bottom: 10px;">Please enter the OTP you received</p>
+        <hr>
+        <form ng-submit="submit2(otp)">
+          <fieldset>
+
+            <label class="label_otp">Phone Number:</label>
+            <h2>{{reg.contactphone}}</h2>
+
+
+            <label class="label_otp">Enter the OTP:</label>
+            <input type="number" string-to-number   ng-model="otp" class="otp_input" id="otp">
+            <input type="submit" class="otp_button" value="submit">
+            <div class="otp_resend"><a href="" style="color:#009694;">resend the OTP ?</a></div>
+          </fieldset>
+        </form>
+      </div>
+</div>
+ <div class="testing {{pop}}" >
+      <div class="cd-popupwhite" role="alert"> 
+        <img src="images/checkmark.gif" style="width:200px;height:150px;border-radius: 50%;" alt="">
+
+       
+        <!-- <p class="successmessage" style="color:black;" ng-bind="message"></p> -->
+        <p class="successmessage" style="color:black;" >Successfully Registered!</p>
+        <p>Kindly check your mail for account activation</p>
+        <p>
+          <input type="button" class="closebutton" value="OK" ng-click="showpop();">
+        </p>
+      </div>
+    </div> 
+
+    <script>
+    function show() {
+                    if (document.getElementById('iameye').type === "text")
+                    {
+                        document.getElementById('iameye').type = "password";
+                        document.getElementById("myImg").src = "images/openeye.png";
+                    } else {
+
+                        document.getElementById("myImg").src = "images/closedeye.png";
+                        document.getElementById('iameye').type = "text";
+                    }
+
+
+                }
+    </script>
+
+
+    <script>
+
+
+                      function toogle() {
+                          var reg = document.getElementById("register_form");
+                          var log = document.getElementById("login_form");
+                          if (log.style.display === "none") {
+                              log.style.display = "block";
+                          } else {
+                              log.style.display = "none";
+                          }
+                          if (reg.style.display === "none") {
+                              reg.style.display = "block";
+                          } else {
+                              reg.style.display = "none";
+                          }
+
+                      }
+
+
+    </script>
+    <script>
+              var app = angular.module('mylead', ['ngStorage']);
+              app.directive('input', [function() {
+    return {
+        restrict: 'E',
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
+            if (
+                   'undefined' !== typeof attrs.type
+                && 'number' === attrs.type
+                && ngModel
+            ) {
+                ngModel.$formatters.push(function(modelValue) {
+                    return Number(modelValue);
+                });
+
+                ngModel.$parsers.push(function(viewValue) {
+                    return Number(viewValue);
+                });
+            }
+        }
+    };
+}]);
+              app.controller('myleadctrl', function ($scope, $http, $window, $localStorage) {
+                $scope.userlogin = function () {
+                        $http.get('http://49.156.148.124:8080/workforce/track/login?username=' + $scope.couple.username + '&pswd=' + $scope.couple.password)
+                                .then(
+                                        function Success(response)
+                                        {
+                                            $scope.login = response.data;
+                                            if ($scope.login.Error ==="no")
+                                            {
+
+                                              
+                                                $localStorage.TOKEN= $scope.login.token;
+                                                $window.location = "/Executive/index.html";
+                                            } else {
+                                                $scope.already = $scope.login.Message;
+                                            }
+
+                                        },
+                                        function fail(response) {
+
+                                        });
+                        $scope.submitted = true;
+                    };
+
+                  $scope.otp = function (phone) {
+                    console.log("hai");
+                      $http.get('http://49.156.148.124:8080/workforce/track/otp?prps=1&phone=' +phone)
+                              .then(
+                            
+                                      function mySuccess(response)
+                                      {
+
+                                          $scope.textotp = response.data;
+                                          if ($scope.textotp.Error === "No")
+                                          {
+
+                                              $scope.test = "is-visible";
+//                                              console.log("hello " + $scope.otppop);
+                                              $scope.message=null;
+
+                                          } else {
+                                              $scope.regerror = $scope.textotp.Message;
+//                                               $scope.reg=null;
+                                          }
+
+                                      }
+
+                              );
+                  };
+
+                  $scope.answer = [];
+                  $scope.submit2 = function (otp1) {
+                      console.log($scope.apple);
+                      $http.get('http://49.156.148.124:8080/workforce/track/validateOtp?phone=' + $scope.reg.contactphone + '&otp=' + otp1).then(
+                              function onSucess(response) {
+                                  if (response.data.Error === "No")
+                                  {
+                                      $http.post('http://49.156.148.124:8080/workforce/track/org?otp='+otp1 , $scope.reg)
+                                              .then(
+                                                      function mySuccess(response)
+                                                      {
+                                                          $scope.text = response.data;
+                                                          if ($scope.text.Error === "no")
+                                                          {
+                                                              $scope.test = " ";
+                                                              $scope.pop = "is-visible";
+                                                              $scope.message = $scope.text.Message;
+//                                                              $scope.answer.push($scope.text.track);
+                                                          } else {
+                                                            $scope.test = " ";
+                                                              $scope.message = $scope.text.Message;
+                                                          }
+
+                                                      },
+                                                      function myError(response)
+                                                      {
+                                                          
+                                                          $scope.message = response.statusText;
+                                                      });
+                                  }
+
+                              },
+                              function onFail(response) {
+                                console.log("get lost"); 
+
+                              });
+
+                      $scope.submitted = true;
+
+                  };
+                  $scope.showpop = function () {
+                      $scope.pop = " ";
+                      $scope.reg=null;
+
+
+                  };
+
+
+              });
+
+
+
+    </script>
+  </body>
+</html>

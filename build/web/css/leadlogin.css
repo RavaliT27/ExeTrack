@@ -1,0 +1,215 @@
+body, html{
+     height: 100%;
+ 	background-repeat: no-repeat;
+ 	background-color: #d3d3d3;
+ 	font-family: 'Oxygen', sans-serif;
+      
+}
+
+.main{
+/* 	margin-top: 1%;*/
+}
+
+.title { 
+	font-size: 25px;
+	font-family: 'Passion One', cursive; 
+	font-weight: 200; 
+        color:#337ab7;
+        margin-bottom: 20px;
+        text-align: center;
+}
+.input-group-addon{
+    color:#337ab7;
+   
+}
+
+.control-label{
+    
+    margin-bottom: 5px;
+}
+
+hr{
+	width: 80%;
+	border:0.5px solid black;
+        margin: 0px;
+        padding: 0px;
+}
+.btn{
+    text-align: center;
+    margin-left: 160px;
+    margin-top: 20px;
+}
+.login-register span{
+    font-size: 15px;
+}
+.login-register a{
+     font-size: 15px;
+     margin-left: 5px;
+     text-decoration: underline;
+}
+.login-register i{
+    font-size: 20px;
+    margin-left: 5px;
+    color:#337ab7;
+}
+button{
+    background-color: #337ab7;
+    color:white;
+    text-align: center;
+ 
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+  
+}
+.panel-title
+{
+    
+}
+
+.form-group{
+	margin:5px 0px !important;
+        display: inline-block;
+}
+.inline_class{
+    /*display: inline-block;*/
+}
+
+label{
+	margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login{
+ 	background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.main-center{
+ 	
+ 	margin: 0 auto;
+ 	max-width: 500px;
+    padding: 40px 40px;
+margin-top: 30px;
+border-radius: 12px;
+}
+.reg_field{
+   
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+        margin-top: 10px;
+}
+.form_wrapper{
+	background:#fff;
+	border:1px solid #ddd;
+	margin:0 auto;
+	width:350px;
+	font-size:16px;
+	-moz-box-shadow:1px 1px 7px #ccc;
+	-webkit-box-shadow:1px 1px 7px #ccc;
+	box-shadow:1px 1px 7px #ccc;
+}
+.active{
+    display:block;
+}
+#login_form{
+    	
+}
+/*<!--animation strats-->*/
+/*animation ends*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/***************************otp code*****************/
+.testing{
+     position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  background-color: rgba(0,0,0,0.4);
+ z-index: 5;
+}
+.cd-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: pink;
+  z-index:2000233;
+  opacity: 0;
+  visibility: hidden;
+/*  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;*/
+}
+.cd-popupwhite{
+    border-radius: 10px;
+   position: relative;
+  padding: 20px 40px;
+width:fit-content;
+  margin: 4em auto;
+  background: white;
+   text-align: center;
+ 
+   z-index: 7;
+   opacity:none;
+}
+.cd-poperror.is-visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+.is-visible {
+
+  visibility: visible;
+/*  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;*/
+}
+ .otp_resend{
+          margin-top: 15px !important;
+          text-decoration: underline;
+
+      }
+       .otp_button{
+          background-color: #009694;
+          width:100%;
+          margin-top: 15px;
+          padding:10px;
+          border:none;
+          color:white;
+      }
+      .closebutton{
+          background-color: #009694;
+          padding:10px 20px;
+          border:none;
+          border-radius: 8px;
+          color:white;
+      }
+/***********************otp code ends**********************/

@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 21, 2018, 4:59:52 PM
+    Author     : pc4
+*/
+.input-group{
+  /*border:1px solid #cccccc;*/
+  width:100%;
+  border-radius: 10px;
+  margin: 10px;
+}
+.input-group .input-group-addon{
+  background-color: black;
+  height: 100%;
+  color:white;
+}
+.input-group input{
+  border:none;
+  background-color: #f2f2f2;
+  width: 100%;
+}
+
